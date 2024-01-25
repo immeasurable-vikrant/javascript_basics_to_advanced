@@ -71,34 +71,3 @@ Algorithm for myBind:
 */
 
 
-
-
-Function.prototype.myBinder = function(context = {}, ...args){
-  if(typeof this !== "function"){
-    throw new Error(this, "bound cannot be call on this")
-  }
-
-  context.fn = this;
-
-  return (...newArgs) => {
-    return context.fn(...args, ...newArgs);
-  }
-  
-}
-
-
-Function.prototype.myBind = function(context={}, ...args){
-  if(typeof this !== 'function'){
-    throw new Error(this, "bound cannot be call on this")
-  }
-
-  context.fn = this;
-
-  return function(...newArgs){
-    context.fn(...args, ...newArgs)
-  }
-
-
-}
-
-

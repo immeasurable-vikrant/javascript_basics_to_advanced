@@ -43,25 +43,3 @@ Push each element to the source array (src).
 
 */
 
-
-
-function pushValues(src, dest){
-  for (let i = 0; i < dest.length; i ++){
-    src.push(dest[i])
-  }
-
-}
-
-
-Array.prototype.myPoly = function(...args){
-  let res = []
-
-  for (let i = 0; i < args.length; i ++){
-    if(Array.isArray(args[i])){
-      pushValues(res, args[i])
-    } else{
-      res.push(args[i])
-    }
-  }
-  return res
-}

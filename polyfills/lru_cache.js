@@ -88,39 +88,3 @@ The new key-value pair is now the most recently used item.
 This way, the cache efficiently maintains the order of item access, allowing for quick retrieval of the most recently used items and efficient eviction of the least recently used items when the cache is full.
 
 */
-
-
-
-
-class LRU1{
-  constructor(max){
-    this.max = max
-    this.cache = new Map()
-  }
-
-
-  get(key){
-    let item = this.cache.get(key)
-
-    if(item){
-      this.cache.delete(key);
-      this.cache.set(key, item)
-      return item
-    } else{
-      return undefined
-    }
-  }
-
-
-  set(key, value){
-    if(this.cache.has(key)){
-      this.cache.delete(key)
-    } else{
-      if(this.cache.size >= this.max){
-      let oldestKey = this.cache.keys().next().value
-      this.cache.delete(oldestKey)
-      }
-    }
-    this.cache.set(key, value)
-  }
-}

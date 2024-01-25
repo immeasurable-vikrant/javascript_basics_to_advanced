@@ -48,13 +48,13 @@ function pipe(...functions) {
 }
 
 // Using pipe
-// const pipedFunction = pipe(
-//   add,
-//   multiply,
-//   subtract
-// );
+const pipedFunction = pipe(
+  add,
+  multiply,
+  subtract
+);
 
-// console.log(pipedFunction(10)); // Output: 24 (subtract(multiply(add(10))))
+console.log(pipedFunction(10)); // Output: 24 (subtract(multiply(add(10))))
 
 // In this example, pipedFunction is a composition of the add, multiply, and subtract functions. When you call pipedFunction(10), it applies add(10), then multiply(result_of_add), and finally subtract(result_of_multiply). The result is 24.
 
@@ -62,49 +62,3 @@ function pipe(...functions) {
 
 
 
-
-
-
-function pipe(...functions){
-    return function(...args){
-        return functions.reduce((acc, fn) => fn(acc), args)
-    }
-}
-
-
-function compose(...functions){
-    return function(...args){
-        return functions.reduceRight((acc, fn) => fn(acc), args)
-    }
-}
-
-
-
-function pipe1(...functions){
-    console.log("functions", functions)
-    return function(...args){
-        console.log("args", args)
-        return functions.reduce((acc, func) => {
-            // console.log("acc", acc)
-            console.log("func", func)
-            return func(acc)
-        }, args)
-    }
-}
-
-
-function addFive1(a) {
-    return a + 5;
-}
-
-function subtractTwo1(a) {
-    return a - 2;
-}
-
-function multiplyFour1(a) {
-    return a * 4;
-}
-
-const evaluate1 = pipe1(addFive1, subtractTwo1, multiplyFour1)
-
-console.log("eval", evaluate1(10))

@@ -29,27 +29,3 @@ Array.prototype.customIterator = function () {
     console.log(result.value);
     result = customIterator.next();
   }
-
-  Array.prototype.customIterator = function(){
-    let index = 0
-
-    const next = () => {
-        if(index < this.length){
-          return {value: this[index++], done: false}
-        }else{
-          return { done: true}
-        }
-      
-    }
-  
-
-    return {next:next}
-  }
-
-
-  const res = myArray.customIterator().next()
-
-  while(!res){
-    console.log(res.value)
-    res = customIterator.next()
-  }

@@ -107,5 +107,3 @@ Return the resulting value.
 
 */
 
-
-function domFinder()

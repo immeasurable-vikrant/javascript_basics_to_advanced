@@ -19,17 +19,3 @@ const arr2 = [1, 2, 3, 4];
 
 const newArr2 = arr2.filter((elem, key) => elem > 1)
 console.log(newArr2)
-
-
-
-
-
-Array.prototype.myFilter = function(callback){
-    let res = []
-
-    for (let i = 0; i < this.length; i++){
-        if(callback(this[i], i, this)){
-            res.push(this[i])
-        }
-    }
-}
